@@ -44,15 +44,15 @@ var line4;
 		  };
 		})(canvas.findTarget);
 
- 		canvas.on('object:over', function(e) {		
+ 		//canvas.on('object:over', function(e) {		
 		  //e.target.setFill('red');
 		  //canvas.renderAll();
-		});
+		//});
 		
- 		canvas.on('object:out', function(e) {		
+ 		//canvas.on('object:out', function(e) {		
 		  //e.target.setFill('green');
 		  //canvas.renderAll();
-		});
+	//	});
 		 		 	 
 		document.getElementById('add-text').onclick = function() {
 			var text = $("#text-string").val();
@@ -69,8 +69,8 @@ var line4;
 		    });		    
             canvas.add(textSample);	
             canvas.item(canvas.item.length-1).hasRotatingPoint = true;    
-            $("#texteditor").css('display', 'block');
-            $("#imageeditor").css('display', 'block');
+            $("#texteditor").css('display', 'flex');
+            $("#imageeditor").css('display', 'flex');
 	  	};
 	  	$("#text-string").keyup(function(){	  		
 	  		var activeObject = canvas.getActiveObject();
@@ -266,11 +266,17 @@ var line4;
 	        }
 	    );
 	   
-	   $('.color-preview').click(function(){
-		   var color = $(this).css("background-color");
-		   document.getElementById("shirtDiv").style.backgroundColor = color;		   
-	   });
+	 //  $('.color-preview').click(function(){
+	//	   var color = $(this).css("background-color");
+	//	   document.getElementById("shirtDiv").style.backgroundColor = color;		   
+	 //  });
 	   
+	   var picker = document.getElementById('colorPicker');
+	   var box = document.getElementsByClassName('shirtDiv')[0];
+	   picker.addEventListener('change', function(){
+		  box.style.backgroundColor = this.value; 
+	   })
+
 	   $('#flip').click(
 		   function() {			   
 			   	if ($(this).attr("data-original-title") == "Show Back View") {
@@ -322,22 +328,22 @@ var line4;
 	    selectedObject.hasRotatingPoint = true
 	    if (selectedObject && selectedObject.type === 'text') {
 	    	//display text editor	    	
-	    	$("#texteditor").css('display', 'block');
+	    	$("#texteditor").css('display', 'flex');
 	    	$("#text-string").val(selectedObject.getText());	    	
 	    	$('#text-fontcolor').miniColors('value',selectedObject.fill);
 	    	$('#text-strokecolor').miniColors('value',selectedObject.strokeStyle);	
-	    	$("#imageeditor").css('display', 'block');
+	    	$("#imageeditor").css('display', 'flex');
 	    }
 	    else if (selectedObject && selectedObject.type === 'image'){
 	    	//display image editor
-	    	$("#texteditor").css('display', 'none');	
-	    	$("#imageeditor").css('display', 'block');
+	    	$("#texteditor").css('display', 'flex');	
+	    	$("#imageeditor").css('display', 'flex');
 	    }
 	  }
 	 function onSelectedCleared(e){
-		 $("#texteditor").css('display', 'none');
+		 $("#texteditor").css('display', 'flex');
 		 $("#text-string").val("");
-		 $("#imageeditor").css('display', 'none');
+		 $("#imageeditor").css('display', 'flex');
 	 }
 	 function setFont(font){
 		  var activeObject = canvas.getActiveObject();
