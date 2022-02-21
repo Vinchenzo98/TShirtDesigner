@@ -71,8 +71,8 @@
 .Engagement{font-family:"Engagement";}
 
 .btn{
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	background: #050c1a;
 	border-color: white;
 	border-style: solid;
@@ -87,20 +87,13 @@
 }
 
 
-@media only screen and (max-width: 400px) {
+
   
-	.btn{
-        width:50px;
-		height: 50px;
-    }
-	a .btn{
-        width:50px;
-		height: 50px;
-    }
-}
+
+
 .btn2{
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	background: #050c1a;
 	border-color: white;
 	border-style: solid;
@@ -112,6 +105,18 @@
 .btn2:hover,
 .btn2:focus{
 	background: #9fb6e3;
+
+}
+
+.btn3{
+	width: 95%;
+	height: 50px;
+	background: #050c1a;
+	border-color: white;
+	border-style: solid;
+	border-width: 2px;
+	color:white;
+	transition: background 250ms ease-in-out, transform 150ms ease;
 
 }
 
@@ -157,11 +162,26 @@ select::-ms-expand {
 display: none;
 }
 
+.mobile{
+	display: none;
+}
+.drawingAreaClass{
+	display: flex;
+justify-content: center;
+align-items: center;
+}
 
 	 </style>
   </head>
 
   <body data-spy="scroll" data-target=".subnav" data-offset="80" >
+
+<!--
+	MOBILE
+-->
+<section class="mobile">
+	<h1 class="mobText">Not available for mobile yet</h1>
+</section>
 
   <!-- Navbar
     ================================================== -->
@@ -224,8 +244,8 @@ display: none;
 
 								-->		
 							
-								  <button type="button" class="btn2 btn-primary" id="myBtn">
-									Upload Design
+								  <button type="button" class="btn3" id="myBtn">
+									Purchase
 								  </button>
 								</div>	  
 					      </div>

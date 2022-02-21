@@ -14,12 +14,9 @@
 	height: 100vh;
 }
 
-@media only screen and (max-width: 1440px) {
-    .span3{
-        width:100%;
-    
-    }
-  }
+
+
+
 
 .span6{
     display: flex; 
@@ -158,8 +155,12 @@
 }
 .drawingAreaClass{
     position: relative;
-    right:10px;
-  
+    right:250px;
+    top: -20px;
+    height: 70vh;
+    border-color: black;
+    border-width: 0.5px;
+    border-style: solid;
 }
 
 /* The Modal (background) */
@@ -206,6 +207,8 @@
 .imageList{
     display: flex;
     flex-wrap: wrap;
+    margin:20px;
+    
 }
 
 
@@ -213,384 +216,84 @@
 
 
 
-@media only screen and (max-width: 400px){
-    .link{
-        width: 50px;
-        height: 50px;
-        background: #050c1a;
-        border-color: white;
-        border-style: solid;
-        border-width: 2px;
-        transition: background 250ms ease-in-out, transform 150ms ease;
-        margin:5px;
-    }
-
-    .link:hover,
-    .link:focus{
-	background: #9fb6e3;
-
-}
-
-    .btn-group{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        
-        left:-100px;
-    }
-    .imageList{
-        width:50%;
-    }
-    .img-polaroid{
-        position: relative;
-        left:-40px;
-        width:40%;
-    }
-}
   @media only screen and (max-width: 1000px) {
-    .btn-group{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top:-60px;
-    
-    }
-    
-    .uiSection{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        top:0px;  
-        left:70%;
-        z-index: 2;
-        width:30vw;
-        height: 100vh;
-    }
-    
-    
-    .span6{
-        z-index:1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        left:30%;
-        top: -600px;
-    }
-    .span3{
-        z-index: 3;
-        position: absolute;
-        top:0;
-        width:30vw;
-    }
-    .addImages{
-        position: relative;
-        top:-60px;
-        width:100vw;
-    }
-    .shirtDiv{
-        position: relative;
-        top:-50px;
-        width:40vw;
-    }
+#typography{
+    display: none;
+
+}
+.mobile{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    width:100vw;
+    height: 100vh;
+}
+.mobText{
+    width:50%;
+}
       }
 
 /*Laptop Desktop shirt Div*/
 
-
-
-
-@media only screen and (max-width: 1024px) {
-    .shirtDiv{
-        width:40vw; 
-        height:40vh; 
-       position: relative;
-    top:200px;
-       right: 10px;
-        
-    }
- .btn{
-     width:80px;
-     height: 80px;
-     background: #050c1a;
- }
- .btn2{
-    width:80px;
-    height: 80px;
-    background: #050c1a;
-}
- 
-.img-polaroid{
-    width:80px;
-    height: 80px;
-}
-
-
-  }
-  @media only screen and (max-width: 1096px) {
-    .row{
-        height: auto;
-        display: flex; 
-        flex-direction: column-reverse;
-    }
-    body{
-        overflow: hidden;
-    }
-    .btn-group{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -20px;
+@media only screen and (min-width:1001px) and (max-width:1920px){
     
-    }
-    
-    .uiSection{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        position: relative;
-        top:0px;  
-        left:70%;
-        z-index: 2;
-        width:30vw;
-        height: 100vh;
-    }
-    
-    
-    .span6{
-        z-index:1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        left:30%;
-        top: -600px;
-    }
-    .span3{
-        z-index: 3;
-        position: absolute;
-        top:0;
-        width:30vw;
-    }
-  
-    .shirtDiv{
-        position: relative;
-        top:-50px;
-        width:40vw;
-    }
-    .addImages{
-        position: relative;
-        top:-250px;
-    }
- 
-    
-    .imageList{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        margin:40px;
-        position: relative;
-        left:0px;
-    }
-    .tab-content{
-        position: relative;
-        left:20px;
-        top:60px;
-    }
-
     #tshirtFacing{
-        position:absolute;
-        top:-150px;
-    
-        height: 85vh;
-        width:40vw;
-     
-      
-    }
-    .link{
-        width: 50px;
-        height: 50px;
-        background: #050c1a;
-        border-color: white;
-        border-style: solid;
-        border-width: 2px;
-        transition: background 250ms ease-in-out, transform 150ms ease;
-        margin:5px;
-    }
-
-    .link:hover,
-    .link:focus{
-	background: #9fb6e3;
-
-}
-      }
-    
-
-
-  @media only screen and (min-width: 1440px) {
-    .shirtDiv{
-        width:34vw; 
-        height:45vh; 
-       position: relative;
-     
-       right: 30px;
-        
-    }
-
-    .imageList{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        margin:40px;
-    }
-    
-    .btn-group{
+        width:30vw;
         position: relative;
-        right:60px;
-        top:105px;
-    }
-    .tab-content{
-        position: relative;
-        left:60px;
-        top:60px;
-    }
-  }
-  
-
-  @media only screen and (min-width: 1920px) {
-    .shirtDiv{
-        width:30vw; 
-        height:70vh; 
-       position: relative;
-       right: 50px;
-        
-    }
-
-    .imageList{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        margin:40px;
-    }
-    .btn-group{
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top:120px;
-        right:200px;
-    
-    }
-    .uiSection{
-       width: 50vw;
-    }
-  .span3{
-      width:40vw;
-      right:100px;
-  }
-  .tab-content{
-      position: relative;
-      left:150px;
-      top:50px;
-  }
- 
-  }
-  @media only screen and (min-width: 2250px) {
-    .shirtDiv{
-        width:25vw; 
-        height:70vh; 
-       position: relative;
-       right:80px;
-        
-    }
-    .btn-group{
-        right:60%;
-    }
-    .tab-content{
-        position: relative;
-        top:50px;
+        top:-5px;
         left:150px;
-    }
-  }
-  
-  @media only screen and (min-width: 3000px) {
-    .shirtDiv{
-        width:35vw; 
-        height:60vh; 
-       position: relative;
-       right:280px;
-        
-    }
-  }
-  
-
- /*tshirt facing laptop and desktop*/
-
-
-
-
-
-  @media only screen and (min-width: 1440px) {
-    #tshirtFacing{
-        position:absolute;
-        top:0px;
-        left: 1x;
-        height: 85vh;
+        height:90vh;
         width:40vw;
+
+    }
     
-      
-    }
-  }
+   .addImages{
+       position: relative;
+       z-index: 1;
+   }
+   .shirtDiv{
+        height:60vh;
+   }
 
-  @media only screen and (min-width: 1920px) {
+.btn-group{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top:150px;
+    left:35px;
+}
+
+
+
+}
+
+@media only screen and (min-width:1921px) and (max-width: 3000px){
     #tshirtFacing{
-        position:absolute;
-        top:0px;
-        left: 1x;
-        height: 85vh;
-        width:40vw;
-     
       
+        position: relative;
+        top:-20px;
+        left:150px;
+        height:90vh;
+        width:60vw;
+
     }
-  }
 
-
-  @media only screen and (min-width: 2250px) {
-    #tshirtFacing{
-        position:absolute;
-        top:0px;
-        left: 1x;
-        height: 85vh;
-        width:40vw;
-       
-      
+    .btn-group{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top:150px;
+        left:35px;
     }
-  }
-
-  @media only screen and (min-width: 3000px) {
-    #tshirtFacing{
-        position:absolute;
-        top:0px;
-        left: 1x;
-        height: 85vh;
-        width:40vw;
-     
-      
-    }
-  }
-
+    
   
+    
+    
+}
+
+
+
 /*Laptop Desktop Canvas*/
 
 
@@ -604,5 +307,5 @@
     border-width: 0.5px;
     border-style: solid;
 }
-#050c1a
+
 */
