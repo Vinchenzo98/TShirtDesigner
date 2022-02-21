@@ -302,32 +302,34 @@
 
 /*Laptop Desktop shirt Div*/
 
+
+
+
 @media only screen and (max-width: 1024px) {
     .shirtDiv{
         width:40vw; 
-        height:50vh; 
+        height:40vh; 
        position: relative;
     top:200px;
        right: 10px;
         
     }
-    .link{
-        width: 100px;
-        height: 100px;
-        background: #050c1a;
-        border-color: white;
-        border-style: solid;
-        border-width: 2px;
-        transition: background 250ms ease-in-out, transform 150ms ease;
-        margin:5px;
-    }
-
-    .link:hover,
-    .link:focus{
-	background: #9fb6e3;
-
+ .btn{
+     width:80px;
+     height: 80px;
+     background: #050c1a;
+ }
+ .btn2{
+    width:80px;
+    height: 80px;
+    background: #050c1a;
 }
-    
+ 
+.img-polaroid{
+    width:80px;
+    height: 80px;
+}
+
 
   }
   @media only screen and (max-width: 1096px) {
@@ -377,11 +379,7 @@
         top:0;
         width:30vw;
     }
-    .addImages{
-        position: relative;
-        top:-60px;
-        width:100vw;
-    }
+  
     .shirtDiv{
         position: relative;
         top:-50px;
