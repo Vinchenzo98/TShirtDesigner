@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>TShirt Editor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -19,7 +20,8 @@
     <!-- Le styles -->
     <link type="text/css" rel="stylesheet" href="css/jquery.miniColors.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" >
+	<link href="css/custom.css" rel="stylesheet">
 	
 	<script type="text/javascript">
 	 </script>
@@ -28,6 +30,7 @@
 	 <style type="text/css">
 	.body{
 		overflow-x: hidden;
+		overflow-y: hidden;
 	}
 	:root {
 		--select-border: #777;
@@ -75,12 +78,43 @@
 	border-style: solid;
 	border-width: 2px;
 	transition: background 250ms ease-in-out, transform 150ms ease;
+	margin:5px;
 }
 .btn:hover,
 .btn:focus{
 	background: #9fb6e3;
 
 }
+
+
+@media only screen and (max-width: 400px) {
+  
+	.btn{
+        width:50px;
+		height: 50px;
+    }
+	a .btn{
+        width:50px;
+		height: 50px;
+    }
+}
+.btn2{
+	width: 150px;
+	height: 50px;
+	background: #050c1a;
+	border-color: white;
+	border-style: solid;
+	border-width: 2px;
+	border-radius:5px;
+	transition: background 250ms ease-in-out, transform 150ms ease;
+	margin:5px;
+}
+.btn2:hover,
+.btn2:focus{
+	background: #9fb6e3;
+
+}
+
 .colorNav{
 	display: flex;
 	flex-wrap: wrap;
@@ -123,6 +157,7 @@ select::-ms-expand {
 display: none;
 }
 
+
 	 </style>
   </head>
 
@@ -135,19 +170,19 @@ display: none;
 		 
 		
 		  <!-- Headings & Paragraph Copy -->
-		  <div class="row" style="height: auto;display: flex; flex-direction: row;">			
-		    <div class="span3" style="background: #050c1a; width:75%; position:relative; right:50px; height: 100vh;">
+		  <div class="row">			
+		    <div class="span3">
 		    	
 		    	<div class="tabbable"> <!-- Only required for left/right tabs -->
 				
 				  <div class="tab-content" style="margin:20px;">
 				     <div class="tab-pane active" id="tab1">
-				     	<div  style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+				     	<div class="insideTab">
 <!--					      	<h3>Tee Styles</h3>-->
 <!--						      <p>-->
 								
 							
-								<div style="margin-top:50px;">
+								<div class="innerTeeTypes">
 										<h4 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 200;color:white;">Add Text</h4>
 										<div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
 										
@@ -174,8 +209,8 @@ display: none;
 									</select>
 									<h4 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 200; color:white;">Add Colour</h4>
 
-									<ul style="display: flex; justify-content: flex-start; align-items: flex-start;">
-										<input id="colorPicker" type="color" name="colorPicker" style="height:20vh;width:15vw; margin-left: -30px;">		
+									<ul class="colorPickerStyle">
+										<input id="colorPicker" type="color" name="colorPicker" class="innerColorPicker" style="height:20vh;width:15vw; margin-left: -30px;">		
 									</ul>
 								<!--
 
@@ -188,23 +223,30 @@ display: none;
 										</div>
 
 								-->		
+							
+								  <button type="button" class="btn2 btn-primary" id="myBtn">
+									Upload Design
+								  </button>
 								</div>	  
 					      </div>
 				     </div>				           
 				  </div>
 				</div>				
 		    </div>		
-		    <div class="span6" style="display: flex; flex-direction: column;">		    
+		    <div class="span6">		    
 				  		
 				<!--	EDITOR      -->	
-				<div id="avatarlist" style="width: 50vw; height: 15vh;  display: flex; flex-direction: row; justify-content: center; align-items: flex-start; background: #050c1a; position: relative; right:100px;">
+				<div class="addImages">
 				
 				</div>
-              
-					<div class="shirtDiv" class="page" style="width:530px; height:50vh; position: relative; top:50px; right:20px;flex:2;">
+						<!-- The Modal -->
+				
+								
+					<div class="shirtDiv" class="page" >
 						<img name="tshirtview" id="tshirtFacing" src="img/crew_front.png">
-						<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					
-							<canvas id="tcanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
+						<div id="drawingArea" class="drawingAreaClass">					
+							<canvas id="tcanvas" width=300 height="600" class="hover" style="-webkit-user-select: none;"></canvas>
+						
 						</div>
 					</div>
 <!--					<div id="shirtBack" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255); display:none;">-->
@@ -217,15 +259,14 @@ display: none;
 				<!--	/EDITOR		-->
 		    </div>
 			
-			<div class="uiSection" style="height: auto;background: #050c1a;">
+			<div class="uiSection">
 		
-					<div style="min-height: 20px; position: relative; display: flex; justify-content: center; margin:20px;">
-						<div style="display: flex; flex-direction: column; justify-content: center;">
-							<div class="btn-group" id="texteditor" style=" display:flex; flex-wrap:wrap; justify-content: center; align-items: center; ">						  
+					<div class="outer">
+						<div class="inner">
+							<div class="btn-group" id="texteditor">					  
 								<div>
-									<h4 style=" font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 200;color:white;">Font Style</h4>
 									
-									<button style="margin:5px;" id="font-family" class="btn dropdown-toggle" data-toggle="dropdown" title="Font Style" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-fonts" viewBox="0 0 16 16">
+									<button  id="font-family" class="btn dropdown-toggle" data-toggle="dropdown" title="Font Style" ><svg class="textButton" xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-fonts" viewBox="0 0 16 16">
 										<path d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479L12.258 3z"/>
 									  </svg></button>		                      
 										<ul class="dropdown-menu" style="position: absolute; top: 125px;" role="menu" aria-labelledby="font-family-X">
@@ -244,22 +285,20 @@ display: none;
 											<li><a tabindex="-1" href="#" onclick="setFont('Plaster');" class="Plaster">Plaster</a></li>
 											<li><a tabindex="-1" href="#" onclick="setFont('Engagement');" class="Engagement">Engagement</a></li>
 										</ul>
-										<button style="margin:5px;" id="text-bold" class="btn" data-original-title="Bold"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-type-bold" viewBox="0 0 16 16">
+										<button id="text-bold" class="btn" data-original-title="Bold"><svg class="boldButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-type-bold" viewBox="0 0 16 16">
 											<path d="M8.21 13c2.106 0 3.412-1.087 3.412-2.823 0-1.306-.984-2.283-2.324-2.386v-.055a2.176 2.176 0 0 0 1.852-2.14c0-1.51-1.162-2.46-3.014-2.46H3.843V13H8.21zM5.908 4.674h1.696c.963 0 1.517.451 1.517 1.244 0 .834-.629 1.32-1.73 1.32H5.908V4.673zm0 6.788V8.598h1.73c1.217 0 1.88.492 1.88 1.415 0 .943-.643 1.449-1.832 1.449H5.907z"/>
 										  </svg></button>
-										<button style="margin:5px;" id="text-italic" class="btn" data-original-title="Italic"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-type-italic" viewBox="0 0 16 16">
+										<button id="text-italic" class="btn" data-original-title="Italic"><svg class="italButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-type-italic" viewBox="0 0 16 16">
 											<path d="M7.991 11.674 9.53 4.455c.123-.595.246-.71 1.347-.807l.11-.52H7.211l-.11.52c1.06.096 1.128.212 1.005.807L6.57 11.674c-.123.595-.246.71-1.346.806l-.11.52h3.774l.11-.52c-1.06-.095-1.129-.211-1.006-.806z"/>
 										  </svg></button>
 
 								</div>
-								<div style="display: flex; justify-content: flex-start; align-items: flex-start;position: relative; right:80px;">
-									<h4 style=" font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 200;color:white; ">Font Colour/ Rotate</h4>
-								</div>
-							
-									<div style="display: flex; flex-direction: row;">
-									
+								
 
-											<a class="btn" style="margin: 5px; display: flex;justify-content: center;align-items: center; width:69px; height: 90px;" href="#" rel="tooltip" data-placement="top" data-original-title="Font Color">
+									<div class="fontColor">
+										
+	
+											<a class="link"  href="#" rel="tooltip" data-placement="top" data-original-title="Font Color">
 												<input type="hidden" id="text-fontcolor" class="color-picker" size="7" value="#000000">
 												<!--
 													<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-palette" viewBox="0 0 16 16">
@@ -269,9 +308,9 @@ display: none;
 												-->
 													
 												</a>
-											<a class="btn" style="margin:5px;display: flex;justify-content: center;align-items: center;width:69px; height: 90px;" href="#" rel="tooltip" data-placement="top" data-original-title="Font Border Color"><input type="hidden" id="text-strokecolor" class="color-picker" size="3" value="#000000"></a>									      
-											<button style="margin:5px;" id="flip" type="button" class="btn" title="Show Back View">
-												<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+											<a class="link" href="#" rel="tooltip" data-placement="top" data-original-title="Font Border Color"><input type="hidden" id="text-strokecolor" class="color-picker" size="3" value="#000000"></a>									      
+											<button  id="flip" type="button" class="btn" title="Show Back View">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
 													<path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
 													<path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
 												  </svg>
@@ -281,42 +320,62 @@ display: none;
 									
 						
 								<div>
-									<h4 style=" font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: 200;color:white;">Front/ Back</h4>	
-									<button style="margin:5px;" class="btn" id="bring-to-front" title="Bring to Front"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-layer-forward" viewBox="0 0 16 16">
+									<button  class="btn" id="bring-to-front" title="Bring to Front"><svg class="sendForward" xmlns="http://www.w3.org/2000/svg" fill="white" class="bi bi-layer-forward" viewBox="0 0 16 16">
 										<path d="M8.354.146a.5.5 0 0 0-.708 0l-3 3a.5.5 0 0 0 0 .708l1 1a.5.5 0 0 0 .708 0L7 4.207V12H1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9V4.207l.646.647a.5.5 0 0 0 .708 0l1-1a.5.5 0 0 0 0-.708l-3-3z"/>
 										<path d="M1 7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h4.5a.5.5 0 0 0 0-1H1V8h4.5a.5.5 0 0 0 0-1H1zm9.5 0a.5.5 0 0 0 0 1H15v2h-4.5a.5.5 0 0 0 0 1H15a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-4.5z"/>
 									  </svg></button>		
-									<button style="margin:5px;" class="btn" id="send-to-back" title="Send to Back"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-layer-backward" viewBox="0 0 16 16">
+									<button  class="btn" id="send-to-back" title="Send to Back"><svg class="sendBack" xmlns="http://www.w3.org/2000/svg"  fill="white" class="bi bi-layer-backward" viewBox="0 0 16 16">
 										<path d="M8.354 15.854a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708l1-1a.5.5 0 0 1 .708 0l.646.647V4H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9v7.793l.646-.647a.5.5 0 0 1 .708 0l1 1a.5.5 0 0 1 0 .708l-3 3z"/>
 										<path d="M1 9a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4.5a.5.5 0 0 1 0 1H1v2h4.5a.5.5 0 0 1 0 1H1zm9.5 0a.5.5 0 0 1 0-1H15V6h-4.5a.5.5 0 0 1 0-1H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4.5z"/>
 									  </svg></button>
 									
-									<button style="margin:5px;" id="remove-selected" class="btn" title="Delete selected item">
-										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-trash3" viewBox="0 0 16 16">
+									<button  id="remove-selected" class="btn" title="Delete selected item">
+										<svg xmlns="http://www.w3.org/2000/svg" class="binButton" fill="white" class="bi bi-trash3" viewBox="0 0 16 16">
 											<path fill-rule="evenodd" d="M6.5 1a.5.5 0 0 0-.5.5v1h4v-1a.5.5 0 0 0-.5-.5h-3ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1H3.042l.846 10.58a1 1 0 0 0 .997.92h6.23a1 1 0 0 0 .997-.92l.846-10.58Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
 										  </svg>
 									</button>
 
-								</div>	
+								</div>
+								
+								<div id="avatarList" class="imageList">
+									<div>
+										<img  style="cursor:pointer; max-width: 90px; height: auto;" class="img-polaroid" src="img/idle.png">
+										<img  style="cursor:pointer;max-width:90px; height: auto;" class="img-polaroid" src="img/skull.png">
+										<img  style="cursor:pointer;max-width:90px; height: auto;" class="img-polaroid" src="img/skull.png">
+									</div>
 									
+									<div>
+										<img  style="cursor:pointer; max-width: 90px; height: auto;" class="img-polaroid" src="img/idle.png">
+										<img  style="cursor:pointer;max-width:90px; height: auto;" class="img-polaroid" src="img/skull.png">
+										<img  style="cursor:pointer;max-width:90px; height: auto;" class="img-polaroid" src="img/skull.png">
+									</div>
+								
+								</div>
+								 
+
+								
 								 <!--- Background <input type="hidden" id="text-bgcolor" class="color-picker" size="7" value="#ffffff"> 
 									text strike	<button id="text-strike" class="btn" title="Strike" style=""><img src="img/font_strikethrough.png" height="" width=""></button>
 									Text underline <button id="text-underline" class="btn" title="Underline" style=""><img src="img/font_underline.png"></button>--->
-							</div>							  
+							</div>
+									  
 								  
-						</div>												
+						</div>	
+																
 					</div>
-
+						
 			</div>
 		
 		  </div>
 		
 		</section>
+
+		
     
     
 <!-- Footer ================================================== -->
     <script>
-        $(document).ready(function(){
+$(document).ready(function(){
    $("#tshirttype").change(function(){
      $("img[name=tshirtview]").attr("src",$(this).val());
 
@@ -479,7 +538,33 @@ display: none;
 			    },200);	   	
         });	
     </script>
+<script>
+	// Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
     <script src="js/bootstrap.min.js"></script>  
 <script type="text/javascript" src="js/tshirtEditor.js"></script>
 	<script type="text/javascript" src="js/jquery.miniColors.min.js"></script>
